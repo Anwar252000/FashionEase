@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c95e606b30d4e56a9595b61e43abcee" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="FashionEaseModel.Color" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="FashionEaseModel.Order" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FashionEaseModel.OrderDetail" Width="1.5" PointX="6" PointY="5" />
+        <EntityTypeShape EntityType="FashionEaseModel.Product" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="FashionEaseModel.Product_Color" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="FashionEaseModel.Role" Width="1.5" PointX="2.75" PointY="10.375" />
+        <EntityTypeShape EntityType="FashionEaseModel.Submission" Width="1.5" PointX="7.75" PointY="9.25" />
+        <EntityTypeShape EntityType="FashionEaseModel.sysdiagram" Width="1.5" PointX="8.75" PointY="3.25" />
+        <EntityTypeShape EntityType="FashionEaseModel.User" Width="1.5" PointX="5" PointY="9.5" />
+        <AssociationConnector Association="FashionEaseModel.FK_Product_Color_Color" />
+        <AssociationConnector Association="FashionEaseModel.FK_OrderDetails_Order" />
+        <AssociationConnector Association="FashionEaseModel.FK_OrderDetails_Product" />
+        <AssociationConnector Association="FashionEaseModel.FK_Product_Color_Product" />
+        <AssociationConnector Association="FashionEaseModel.FK_User_Role" />
+        <EntityTypeShape EntityType="FashionEaseModel.Review" Width="1.5" PointX="3" PointY="14.375" />
+        <AssociationConnector Association="FashionEaseModel.FK_Review_Product" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

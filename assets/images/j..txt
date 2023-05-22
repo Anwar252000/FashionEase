@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Aspose.Html;
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
+
+
+namespace Scraping
+{
+    class Program
+    {
+        public static string Scrap = "";
+
+        public static void Main()
+        {
+            Task t = CreateTestSuite();
+            Task.WaitAll(new Task[] { t });
+            if (Scrap!=String.Empty)
+            {
+                var doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(Scrap);
+                HtmlNode htmlDoc = doc.DocumentNode;
+
+                List<HtmlNode> list = new List<HtmlNode>();
+                foreach (HtmlNode heading in htmlDoc.SelectNodes("//li[@class='item product product-item']"))
+                {
+                    list.Add(heading);
+                }
+                foreach (HtmlNode item in list)
+                {
+                    var value = item.InnerText;
+
+                    value=value.Replace(" ", "").Replace("\n", " ");
+                    Console.WriteLine(value);
+                    var data = item.SelectSingleNode("//img[@class='product-image-photo lazy']");
+                    Console.WriteLine(data.Attributes["data-original"].Value);
+                    
+                    
+                }
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Data is null");
+            }
+
+            
+            Console.ReadLine();
+        }
+        private  static async Task CreateTestSuite()
+        {
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+            try
+            {
+                string responseBody = "";
+
+                using (var client = new HttpClient())
+                {
+                    //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+                    client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36");
+                    //string url = "https://www.junaidjamshed.com/mens/kameez-shalwar.html";
+                    string url = "https://www.junaidjamshed.com/womens/un-stitched.html";
+                    using (HttpResponseMessage response = client.GetAsync(url).Result)
+                    {
+
+                        responseBody = await response.Content.ReadAsStringAsync();
+                        Scrap = responseBody;
+                        
+                    }
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+        
+    }
+}

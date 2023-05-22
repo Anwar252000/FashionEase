@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+
+
+//vendor dashboad/index
+
+
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="ri-home-line align-bottom me-1"></i> Dashboard</a></li>
+            </ol>
+        </nav>
+
+        <div class="row g-4 mb-4">
+
+            <!-- Projects Widget-->
+            <div class="col-12">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Products</h6>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table m-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th class="text-end">Actions</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    @foreach (var item in ViewBag.Products)
+                                    {
+
+
+                                <tr>
+                                    <td class="avatar" alt="Product"><img src="/UploadedFiles/@item.Image" /></td>
+                                    <td class="text-white">@item.Name</td>ss
+                                    <td class="text-white">@item.Description</td>
+                                    <td class="text-white">@item.Price</td>
+                                    <td class="text-white">@item.Quantity</td>
+                                    <td class="text-white">
+
+                                        <a href="/Products/Edit/@item.Id" style="color:white;">Edit</a>
+                                    </td>
+
+                                    <td class="text-white">
+                                        <div class="d-flex align-items-center">
+
+                                            <form action="/Products/Delete" method="post">
+                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                <button type="submit" style="background:none;border:none;color:red">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+
+
+
+                                </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / Projects Widget-->
+
+        </div>
+
+    </section>
+</main>
+<!-- /Page Content -->
+
+                                   
+                                

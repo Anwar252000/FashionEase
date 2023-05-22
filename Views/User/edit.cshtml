@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>edit</h2>
+
+<main id="main">
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/User/Edit/@ViewBag.user.Id"><i class="ri-home-line align-bottom me-1"></i> Edit User</a></li>
+            </ol>
+        </nav>
+        <form action="/User/Edit" method="post">
+
+            <input type="hidden" name="Id" value="@ViewBag.user.Id" />
+            @*<input type="text" name="Name" value="@ViewBag.user.Name" placeholder="Enter your name" />*@
+
+
+            <input type="email" name="Email" value="@ViewBag.user.Email" placeholder="Enter your Email" />
+
+
+
+
+            <input type="text" name="Contact" value="@ViewBag.user.Contact" placeholder="Enter your Contact" />
+
+
+            <input type="submit" value="Edit User" />
+
+        </form>
+        </section>
+
+</main>

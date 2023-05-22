@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewBag.Title = "PrivacyPolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main id="maincontent" class="page-main">
+    <a id="contentarea" tabindex="-1"></a>
+    <div class="page messages">
+        <div data-placeholder="messages"></div>
+        <div data-bind="scope: 'messages'">
+            <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+            <div aria-atomic="true" role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+                <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: messages().messages && messages().messages.length > 0 -->
+            <div aria-atomic="true" role="alert" class="messages" data-bind="foreach: {
+        data: messages().messages, as: 'message'
+    }">
+                <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                    <div data-bind="html: $parent.prepareMessageForHtml(message.text)"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                                "messages": {
+                                    "component": "Magento_Theme/js/view/messages"
+                                }
+                            }
+                        }
+                    }
+            }
+        </script>
+    </div><div class="columns">
+        <div class="column main">
+            <input name="form_key" type="hidden" value="r9AA3PvrvReoYl2F" /><div id="authenticationPopup" data-bind="scope:'authenticationPopup', style: {display: 'none'}">
+                <script>window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"https:\/\/www.junaidjamshed.com\/customer\/account\/create\/","customerForgotPasswordUrl":"https:\/\/www.junaidjamshed.com\/customer\/account\/forgotpassword\/","baseUrl":"https:\/\/www.junaidjamshed.com\/"}</script>    <!-- ko template: getTemplate() --><!-- /ko -->
+                <script type="text/x-magento-init">
+                    {
+                        "#authenticationPopup": {
+                            "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"WeltPixel_SocialLogin\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
+                        "*": {
+                            "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fwww.junaidjamshed.com\u002Fstatic\u002Fversion1669933530\u002Ffrontend\u002FRltsquare\u002Fjunaidjamshed\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+                        }
+                    }
+                </script>
+            </div>
+            <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "Magento_Customer/js/section-config": {
+                            "sections": {"stores\/store\/switch":["*"],"stores\/store\/switchrequest":["*"],"directory\/currency\/switch":["*"],"*":["messages"],"customer\/account\/logout":["*","recently_viewed_product","recently_compared_product","persistent"],"customer\/account\/loginpost":["*"],"customer\/account\/createpost":["*"],"customer\/account\/editpost":["*"],"customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products","gtm"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart","directory-data","gtm"],"checkout\/cart\/delete":["cart","gtm"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart","gtm"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","last-ordered-items","instant-purchase","gtm"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart","gtm"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"wishlist\/index\/add":["wishlist","gtm"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart","gtm"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart","gtm"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"giftregistry\/index\/cart":["cart"],"giftregistry\/view\/addtocart":["cart"],"customer_order\/cart\/updatefaileditemoptions":["cart"],"checkout\/cart\/updatefaileditemoptions":["cart"],"customer_order\/cart\/advancedadd":["cart"],"checkout\/cart\/advancedadd":["cart"],"checkout\/cart\/removeallfailed":["cart"],"checkout\/cart\/removefailed":["cart"],"customer_order\/cart\/addfaileditems":["cart"],"checkout\/cart\/addfaileditems":["cart"],"customer_order\/sku\/uploadfile":["cart"],"magento\/etisalatpay\/placeorder":["cart","checkout-data"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"wishlist\/index\/copyitem":["wishlist"],"wishlist\/index\/copyitems":["wishlist"],"wishlist\/index\/deletewishlist":["wishlist","multiplewishlist"],"wishlist\/index\/createwishlist":["multiplewishlist"],"wishlist\/index\/editwishlist":["multiplewishlist"],"wishlist\/index\/moveitem":["wishlist"],"wishlist\/index\/moveitems":["wishlist"],"wishlist\/search\/addtocart":["cart","wishlist"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"checkout\/cart\/configure":["gtm"],"rest\/*\/v1\/guest-carts\/*\/shipping-information":["gtm"],"rest\/*\/v1\/carts\/*\/shipping-information":["gtm"],"weltpixel_quickview\/index\/updatecart":["cart"],"sociallogin\/account\/login":["*"],"sociallogin\/account\/loginpost":["*"]},
+                            "clientSideSections": ["checkout-data","cart-data","chatData"],
+                            "baseUrls": ["https:\/\/www.junaidjamshed.com\/","http:\/\/www.junaidjamshed.com\/"],
+                            "sectionNames": ["messages","customer","compare-products","last-ordered-items","cart","directory-data","captcha","wishlist","instant-purchase","loggedAsCustomer","multiplewishlist","persistent","review","chatData","gtm","recently_viewed_product","recently_compared_product","product_data_storage"]            }
+                    }
+                }
+            </script>
+            <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "Magento_Customer/js/customer-data": {
+                            "sectionLoadUrl": "https\u003A\u002F\u002Fwww.junaidjamshed.com\u002Fcustomer\u002Fsection\u002Fload\u002F",
+                            "expirableSectionLifetime": 60,
+                            "expirableSectionNames": ["cart","persistent"],
+                            "cookieLifeTime": "3600",
+                            "updateSessionUrl": "https\u003A\u002F\u002Fwww.junaidjamshed.com\u002Fcustomer\u002Faccount\u002FupdateSession\u002F"
+                        }
+                    }
+                }
+            </script>
+            <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "Magento_Customer/js/invalidation-processor": {
+                            "invalidationRules": {
+                                "website-rule": {
+                                    "Magento_Customer/js/invalidation-rules/website-rule": {
+                                        "scopeConfig": {
+                                            "websiteId": "1"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            </script>
+            <script type="text/x-magento-init">
+                {
+                    "body": {
+                        "pageCache": {"url":"https:\/\/www.junaidjamshed.com\/page_cache\/block\/render\/page_id\/179\/","handles":["default","cms_page_view","cms_page_view_id_privacy-policy","weltpixel_customfooter_removecopyright","weltpixel_custom_header_v4","weltpixel_custom_header_globalpromo_abovemenu","weltpixel_design_elements_bootstrap_grid","weltpixel_design_elements_fonts_core","weltpixel_design_elements_fonts_extended","weltpixel_design_elements_bootstrap_tables","weltpixel_design_elements_toggles_accordions_tabs","weltpixel_design_elements_pricing_boxes","weltpixel_design_elements_headings_blockquotes","weltpixel_design_elements_dividers","weltpixel_design_elements_brand_lists","weltpixel_design_elements_responsive_helpers","weltpixel_design_elements_smooth_scrolling","weltpixel_design_elements_icon_boxes","weltpixel_design_elements_alert_boxes","weltpixel_design_elements_testimonials","weltpixel_design_elements_flexslider","weltpixel_design_elements_buttons","weltpixel_design_elements_sections","weltpixel_design_elements_animations_core","weltpixel_design_elements_animations_extended","weltpixel_design_elements_aos_animation","weltpixel_design_elements_btt_button","weltpixel_cms_page_view","weltpixel_googlecards_remove_schema","weltpixel_multistore","weltpixel_multistore_onerow_mobile","weltpixel_quickcart_sidebar"],"originalRequest":{"route":"cms","controller":"page","action":"view","uri":"\/privacy-policy"},"versionCookieName":"private_content_version"}        }
+                }
+            </script>
+            <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "Magento_Banner/js/model/banner":
+                            {"sectionLoadUrl":"https:\/\/www.junaidjamshed.com\/banner\/ajax\/load\/","cacheTtl":30000}        }
+                }
+            </script>
+
+            <style xml="space">
+                <!--
+                .cms-page-container {
+                    max-width: 700px;
+                    margin: 0 auto;
+                    padding-top: 40px;
+                }
+
+                .cms-page-title {
+                    text-align: center;
+                    margin: 25px 0;
+                    display: inline-block;
+                    text-align: center;
+                    width: 100%;
+                    font-size: 25px;
+                }
+
+                .list-wrapper ul {
+                    padding-left: 15px;
+                }
+
+                .space-2 {
+                    margin: 20px;
+                    float: left;
+                    width: 100%;
+                }
+
+                .cms-main-title {
+                    text-align: center;
+                    font-size: 30px !important;
+                    margin: 25px 0;
+                    line-height: 1;
+                }
+
+                .cms-small-title {
+                    color: #000;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin: 15px 0;
+                    line-height: 1.4;
+                }
+                -->
+            </style>
+            <div class="cms-page-container" >
+                <h1 class="cms-main-title">PRIVACY POLICY</h1>
+                <p style="font-size:17px; font-family:Bahnschrift">Your privacy is important to us. It is FashionEase(Pvt.) Ltd's policy to respect your privacy regarding any information we may collect from you across our website, http://wwww.fashionease.com/, and other sites we own and operate.</p>
+                <h3 class="cms-page-title">THE INFORMATION WE MAY COLLECT </h3>
+                <div class="list-wrapper" style="font-size:17px; font-family:Bahnschrift">
+                    <p style="font-size:20px; font-family:Bahnschrift">We may collect and process the following types of personal information:</p>
+                    <ul>
+                        <li>Personal contact details such as name, title, address, email address and telephone number as part of orders &amp; account signup.</li>
+                        <li>Details of purchases and transactions</li>
+                        <li>Information submitted as part of a survey</li>
+                        <li>Records of correspondence with you by telephone, email, live chat, social media or otherwise</li>
+                        <li>Details of your visits to the website, and information about how your device has interacted with our website, including search and browsing history, the pages accessed and links clicked</li>
+                        <li>Information collected automatically from your device, including IP address, device type, operating system, unique device identification numbers, browser-type, broad geographic location (e.g. country or city-level location) and other technical information</li>
+                    </ul>
+                </div>
+                @*<h3 class="cms-page-title">How your data is collected</h3>
+                <div class="list-wrapper">
+                    <p>We collect data from you when you register an account with us, subscribe to marketing communications from us, submit inquiries to us and/or purchase from us. We also collect information that you provide voluntarily to our customer services team, whether in writing, by telephone, email or live chat.</p>
+                    <p><br />We also collect some information automatically using cookies to improve the shopping experience. By using our website you agree that we can place these types of cookies on your device and access them when you visit the site in the future.</p>
+                    <p></p>
+                </div>*@
+                <h3 class="cms-page-title">USE OF DATA &amp; INFORMATION</h3>
+                <div class="list-wrapper"style="font-size:17px; font-family:Bahnschrift">
+                    <p style="font-size:17px; font-family:Bahnschrift">We may collect, hold, use and disclose information for the following purposes and personal information will not be further processed in a manner that is incompatible with these purposes:</p>
+                    <ul>
+                        <li>To enable you to customize or personalize your experience of our website.</li>
+                        <li>To process any transactional or ongoing payments.</li>
+                        <li>To fulfill any orders placed with us.</li>
+                        <li>To process refunds.</li>
+                        <li>To create an account for you.</li>
+                        <li>To contact and communicate with you.</li>
+                        <li>To store information about your preferences to allow us to customize our website and marketing communications according to your interests.</li>
+                        <li>For internal record keeping and administrative purposes</li>
+                        <li>To notify you about changes to our service.</li>
+                        <li>To obtain and analyze your feedback as part of customer surveys.</li>
+                        <li>To handle any disputes which we may have with you.</li>
+                        <li>To comply with our legal obligations and resolve any disputes that we may have.</li>
+                    </ul>
+                </div>
+                <h3 class="cms-page-title">HOW WE SECURE YOUR DATA</h3>
+                <div class="list-wrapper" style="font-size:17px; font-family:Bahnschrift">
+                    <p style="font-size:17px; font-family:Bahnschrift">We have put in place the necessary and appropriate safeguards and access controls to ensure the security, integrity, and privacy of the information you provide us with. @*Our website uses a Secure Socket Layer (SSL) encryption which encrypts your information to protect it from unauthorized use.*@</p>
+                    <p style="font-size:17px; font-family:Bahnschrift"><br />No payment details are stored on our website. we receive encrypted information needed to verify and authorize your payment and to process your order.</p>
+                </div>
+                @*<h3 class="cms-page-title">WHO WE MAY SHARE YOUR DATA WITH</h3>
+                <div class="list-wrapper">
+                    <p>We may share some of your data with, or obtain personal information from, the following third parties:</p>
+                    <p><br /><strong>Service providers</strong></p>
+                    <p>Third party service providers for the purpose of enabling them to provide their services, including (without limitation) IT service providers, data storage, web hosting, and server providers, debt collectors, maintenance or problem-solving providers, marketing or advertising providers, professional advisors, and payment systems operators;<br />sponsors or promoters of any competition we run.</p>
+                    <p>Third parties, including agents or sub-contractors, who assist us in providing information, products, services or direct marketing to you; and<br />third parties to collect and process data.</p>
+                    <p><br /><strong>Police or other regulatory or government authority</strong><br />courts, tribunals, regulatory authorities, and law enforcement officers, as required by law, in connection with any actual or prospective legal proceedings, or in order to establish, exercise or defend our legal rights</p>
+                </div>*@
+                @*<h3 class="cms-page-title">YOUR RIGHTS IN CONNECTION WITH YOUR DATA</h3>
+                <div class="list-wrapper">
+                    <p><strong>Choice and consent:</strong> By providing personal information to us, you consent to us collecting, holding, using and disclosing your personal information in accordance with this privacy policy. If you are under 16 years of age, you must have and warrant to the extent permitted by law to us, that you have your parent or legal guardian’s permission to access and use the website and they (your parents or guardian) have consented to you providing us with your personal information. You do not have to provide personal information to us, however, if you do not, it may affect your use of this website or the products and/or services offered on or through it.</p>
+                    <p><strong>Information from third parties:</strong> If we receive personal information about you from a third party, we will protect it as set out in this privacy policy. If you are a third party providing personal information about somebody else, you represent and warrant that you have such person’s consent to provide the personal information to us.</p>
+                    <p><strong>Restrict:</strong> You may choose to restrict the collection or use of your personal information. If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by contacting us using the details below. If you ask us to restrict or limit how we process your personal information, we will let you know how the restriction affects your use of our website or products and services.</p>
+                    <p><strong>Correction:</strong> If you believe that any information we hold about you is inaccurate, out of date, incomplete, irrelevant or misleading, please contact us using the details below. We will take reasonable steps to correct any information found to be inaccurate, incomplete, misleading or out of date.</p>
+                    <p><strong>Notification of data breaches:</strong> We will comply with laws applicable to us in respect of any data breach.</p>
+                    <p><strong>Complaints:</strong> If you believe that we have breached a relevant data protection law and wish to make a complaint, please contact us using the details below and provide us with full details of the alleged breach. We will promptly investigate your complaint and respond to you, in writing, setting out the outcome of our investigation and the steps we will take to deal with your complaint.</p>
+                    <p><strong>Unsubscribe:</strong> To unsubscribe from our e-mail database or opt-out of communications (including marketing communications), please contact us using the details below or opt-out using the opt-out facilities provided in the communication.</p>
+                    <p>Contact us at eshop@junaidjamshed.com</p>
+                </div>*@
+                <h3 class="cms-page-title">CHANGES TO THIS POLICY</h3>
+               <p style="font-size:17px; font-family:Bahnschrift">At our discretion, we may change our privacy policy to reflect current acceptable practices. We will take reasonable steps to let users know about changes via our website. Your continued use of this site after any changes to this policy will be regarded as acceptance of our practices around privacy and personal information.</p>
+                <div class="list-wrapper">
+                    <p style="font-size:17px; font-family:Bahnschrift">If we make a significant change to this privacy policy, for example changing a lawful basis on which we process your personal information, we will ask you to re-consent to the amended privacy policy.</p>
+                </div>
+                <h3 class="cms-page-title">CONTACT DETAILS</h3>
+                <div class="list-wrapper">
+                    <p style="font-size:17px; font-family:Bahnschrift">For any questions about this policy or information requests please email <a href="fashionease@gmail.com">fahionease@gmail.com</a> </p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

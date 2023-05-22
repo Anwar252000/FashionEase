@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>search</h2>
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+
+
+
+
+<br />
+<br />
+<br />
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+       $("#txtSearch").autocomplete({
+
+            source: '@Url.Action("GetCustomers","Search")',
+
+            minLength: 1
+
+        });
+    });
+
+</script>
+
+<div class="form-group">
+    SEARCH:
+    @Html.TextBox("searchTerm", null, new { id = "txtSearch", Class = "autosuggest" })
+</div>
+

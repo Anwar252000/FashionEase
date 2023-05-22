@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Dashboard/Index"><i class="ri-home-line align-bottom me-1"></i> Dashboard</a></li>
+            </ol>
+        </nav>
+
+        <h2>Edit Product</h2>
+
+        <form action="/Products/Edit" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="Id" value="@ViewBag.user.Id" />
+            <input type="text" name="Name" value="@ViewBag.user.Name" placeholder="Product Name" />
+
+
+            <input type="text" name="Description" value="@ViewBag.user.Description" placeholder="Product Descripition" />
+            <br /><br />
+
+
+
+            <input type="number" name="Price" value="@ViewBag.user.Price" placeholder="Product Price" />
+            <input type="text" name="Quantity" value="@ViewBag.user.Quantity " placeholder="Product Quantity" />
+            <br /><br />
+            @*<input type="text" name="Image" value="@ViewBag.user.Image" placeholder="Product Image" />*@
+
+
+            Old Image <img src="~/UploadedFiles/@ViewBag.user.Image" width="70" />
+
+
+            Update (if necessary) <input type="file" name="file" />
+
+
+            <input type="submit" value="Edit Product" class="btn btn-primary" />
+
+        </form>
+
+</section>
+        </main>

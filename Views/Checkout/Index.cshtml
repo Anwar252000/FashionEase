@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">Checkout<span>Shop</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Home">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="checkout">
+            <div class="container">
+               
+                <form action="/Checkout/CheckoutOrder/" method="post">
+                    <div class="row" >
+                        <div class="col-lg-9" >
+                            <div style="color:black; font-size:medium">
+                                <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Name *</label>
+                                        <input type="text" name="Name" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+
+                                    <div class="col-sm-6">
+                                        <label>Email *</label>
+                                        <input type="email" name="Email" class="form-control" required>
+                                    </div><!-- End .col-sm-6 -->
+                                </div><!-- End .row -->
+
+                                <label>Phone</label>
+                                <input type="tel" name="Phone" class="form-control">
+
+                                <label>Billing Address</label>
+                                <input type="text" name="BillingAddress" class="form-control" required>
+
+                                <label>Shipping address *</label>
+                                <br />
+                                Select your City:
+                                <select id="mySelect" style="font-size: initial; color: chocolate; font-kerning: initial; font-weight: 500">
+                                    <option>Karachi</option>
+
+                                </select>
+                                <br /> <br />
+                                Select your Area:
+                                       <select id="mySelect" style="font-size:initial; color:chocolate; font-kerning:initial; font-weight:500">
+                                           <option>Saddar</option>
+                                           <option>Faisal Cantonment</option>
+                                           <option>New Karachi</option>
+                                           <option>Baldia Town</option>
+                                           <option>Gulshan Town</option>
+                                           <option>Liaquatabad</option>
+                                           <option>Defense Housing Authority</option>
+                                           <option>Gadap Town</option>
+                                           <option>Bin Qasim Town</option>
+
+
+                                       </select>
+                               
+                                <br><br>
+
+
+                                <input type="text" name="ShippingAddresss" class="form-control" placeholder="House number and Street name, e.g: House 48-B, gulshan, karachi" required>
+
+                            </div>
+
+
+                            <!--<button onclick="myFunction()">Use different shipping Address ^</button>
+
+                            <div id="myDIV">
+                                <div class="col-lg-9">
+                                    <h2 class="checkout-title">Shipping Details</h2>--><!-- End .checkout-title -->
+                                    <!--<div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Name *</label>
+                                            <input type="text" name="Name" class="form-control" required>
+                                        </div>--><!-- End .col-sm-6 -->
+
+                                        <!--<div class="col-sm-6">
+                                            <label>Email *</label>
+                                            <input type="email" name="Email" class="form-control" required>
+                                        </div>--><!-- End .col-sm-6 -->
+                                    <!--</div>--><!-- End .row -->
+
+                                    <!--<label>Phone</label>
+                                    <input type="tel" name="Phone" class="form-control">
+
+                                    <label>Shipping Address</label>
+                                    <input type="text" name="ShipppingAddress" class="form-control" required>
+
+                                </div>
+
+                            </div>-->
+
+
+                        </div>
+                        <aside class="col-lg-3">
+                            <div class="summary">
+                                <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+                                <table class="table table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @{
+                                            float subtotal = 0;
+                                        }
+                                        @if (Session["Cart"] != null)
+
+                                        {
+                                            foreach (var item in Session["Cart"] as List<Cart>)
+                                            {
+                                                subtotal = Convert.ToSingle(subtotal + item.bill);
+                                                <tr>
+                                                    <td><a href="#">@item.Name</a></td>
+                                                    <td>@item.Price</td>
+                                                </tr>
+
+
+
+                                            }
+                                        }
+                                        <tr>
+
+                                            <td>Shipping:</td>
+                                            <td>99 PKR</td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td>Rs. @(subtotal+ 100)</td>
+                                        </tr><!-- End .summary-total -->
+
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+                                <input type="hidden" value="@subtotal" name="Amount" />
+
+                                <button type="submit"  class="btn btn-outline-primary-2 btn-order btn-block">
+                                  
+                                    <span class="btn-text">Place Order</span>
+            <span class="btn-hover-text">Proceed to Checkout</span>
+                                </button>
+                            </div><!-- End .summary -->
+                        </aside><!-- End .col-lg-3 -->
+                    </div><!-- End .row -->
+                </form>
+            </div><!-- End .container -->
+        </div><!-- End .checkout -->
+    </div><!-- End .page-content -->
+</main>
+
+
+<script>
+
+    var msg = '@TempData["alert"]';
+
+        if (msg) {
+
+            alert(msg);
+    }
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+
+    function myFunction() {
+        document.getElementById("Karachi").disabled = true;
+    }
+
+
+</script>

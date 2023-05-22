@@ -1,0 +1,92 @@
+﻿@model List<PROJECT.DTOs.CollectionData2>
+@{
+    ViewBag.Title = "J";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="text-align:center; font-size:50px; margin-top:60px;">Welcome to J.</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+
+<div class="row h-100 justify-content-center align-items-center">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="width:1480px;">
+        @if(ViewBag.DateOfDiv != null)
+            {
+
+        foreach (var items in ViewBag.DateOfDiv)
+        {
+
+            <div class="col-md-4">
+                <div class="card">
+                    <input aria-hidden="true" id="pidsa"  name="pid" value="@items.pid"/>
+                    <img src="@items.LinkImage" class="card-img-top" alt="..." id="Pimage" >
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2 id="pname">@items.Name</h2>
+                            <p id="pprice">@items.Price: item.Price</p>
+                            <input type="number" id="itemQty" value="1" />
+                            @*<a href="/Checkout/Cart" id="submitBtn" style="margin-right:280px; align-content:center;">Add to Cart</a>*@
+
+                            <button id="submitBtn" type="button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+            }
+    </div>
+
+</div>
+
+
+<script>
+    //$(document).ready(function () {
+
+        $('#submitBtn').click(function (event) {
+            event.preventDefault();
+            console.log("button clicked.");
+
+            var Id = $("#pidsa").val();
+            var pname = $("#pname").text();
+            var pprice = $("#pprice").text();
+            var img = $('#Pimage').attr('src');
+            var qty = $('#itemQty').val();
+
+            // Create a data object with the product information
+            var productData = {
+                Id: Id,
+                Pname: pname,
+                PPrice: pprice,
+                Img: img
+            };
+            
+            // Create a data object with the item information
+            var itemData = {
+                Id: Id,
+                Price: pprice,
+                Quantity: qty,
+                Size: "#",
+                IsExternal: true,
+                myArray: productData
+            };
+
+            console.log(itemData)
+            //debugger
+            // Send the item data to the server
+            $.ajax({
+                url: "/Checkout/CartAdd",
+                type: "POST",
+                data: itemData,
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = "/Checkout/Cart"
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    //});
+    
+</script>

@@ -1,0 +1,106 @@
+﻿//admin dashboard of list of all users
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Dashboard/Index"><i class="ri-home-line align-bottom me-1"></i> Dashboard</a></li>
+            </ol>
+        </nav>
+
+        <div class="row g-4 mb-4">
+
+            <!-- Projects Widget-->
+            <div class="col-12">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Users</h6>
+                      
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table m-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th >Role</th>
+                                     
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.list)
+                                    {
+
+                                   
+                                    <tr>
+                                        <td class="text-white">@item.Email</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <span class="dot dot-xs bg-warning me-2"></span> @(item.IsActive==true?"Active" :"Not Active")
+                                            </div>
+                                        </td>
+                                        <td>@item.CreatedOn.ToString("dd-MM-yyyy")</td>
+                                        <td>
+                                           @(item.Role == null? "N/A": item.Role.Name)
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="dropdown">
+                                                <button class="btn btn-link dropdown-toggle dropdown-toggle-icon fw-bold p-0" type="button"
+                                                        id="dropDownProj-0" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="ri-more-2-line"></i>
+                                                </button>
+
+
+                                                <ul  class="dropdown-menu dropdown" aria-labelledby="dropDownProj-0">
+                                                    <h5  style="margin-left:-10px;"><a class="dropdown-item" href="/User/Edit/@item.Id">Edit</a></h5>
+                                                    <li>
+                                                        <h5 style="margin-left:-2px;" >
+                                                            <form action="/User/Delete" method="post" style="color:white;">
+
+                                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                                <button type="submit" style=" text-decoration:none;background:none; text-align:center; color:red; border:none;">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        </h5>
+
+                                                        <ul  style="margin-left:-42px;">
+                                                           <h5><a class="dropdown-item" href="/User/Update/@item.Id">Update</a>
+                                                            </h5>
+                                                        </ul>
+
+
+                                                        @*<a class="dropdown-item" href="#">Delete</a>*@
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                     }
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <!-- / Projects Widget-->
+
+        </div>
+
+    </section>
+</main>
+<!-- /Page Content -->

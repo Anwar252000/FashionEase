@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Dashboard/Index"><i class="ri-home-line align-bottom me-1"></i> Dashboard</a></li>
+            </ol>
+        </nav>
+
+        <div class="row g-4 mb-4">
+
+            <!-- Projects Widget-->
+            <div class="col-12">
+                <div class="card mb-4 h-100">
+                    <div class="card-header justify-content-between align-items-center d-flex">
+                        <h6 class="card-title m-0">Orders</h6>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table m-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Order#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Amount</th>
+                                        <th>OrderStatus</th>
+                                        @*<th>Status</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.Orders)
+                                    {
+
+
+                                        <tr>
+                                            <td class="text-white">@item.Order.Id</td>
+                                            @*<td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="dot dot-xs bg-warning me-2"></span> @(item.IsActive==true?"Active" :"Not Active")
+                                                    </div>
+                                                </td>*@
+
+                                            <td class="text-white">@item.Order.Name</td>
+                                            <td class="text-white">@item.Order.Email</td>
+                                            <td class="text-white">@item.Order.Phone</td>
+                                            <td class="text-white">@item.Order.ShipppingAddress</td>
+                                            <td class="text-white">@item.Order.Amount</td>
+                                            <td class="text-white">@item.Order.OrderStatus</td>
+
+                                            @*<td class="text-white">@item.Order.Id</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="dot dot-xs bg-warning me-2"></span> @(item.IsActive==true?"Active" :"Not Active")
+                                                    </div>
+                                                </td>
+
+
+                                                <td class="text-white">@item.Order.Id</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="dot dot-xs bg-warning me-2"></span> @(item.IsActive==true?"Active" :"Not Active")
+                                                    </div>
+                                                </td>
+
+                                                <td class="text-white">@item.Order.Id</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="dot dot-xs bg-warning me-2"></span> @(item.IsActive==true?"Active" :"Not Active")
+                                                    </div>
+                                                </td>*@
+
+
+                                            @*<td>@item.CreatedOn.ToString("dd-MM-yyyy")</td>
+
+                                                <td class="text-white">
+                                                    <div class="d-flex align-items-center">
+
+                                                        <form action="/User/Accept/@item.Id" method="post">
+                                                            <button type="submit" style="background:none;border:none;color:blue"> ✔ Accept</button>
+                                                        </form>
+                                                    </div>
+                                                </td>*@
+
+
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / Projects Widget-->
+
+        </div>
+
+    </section>
+</main>
+<!-- /Page Content -->

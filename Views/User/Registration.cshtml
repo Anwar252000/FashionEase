@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+
+
+<center style="margin: 150px; font-size:25px;">
+    <h2 style=" color: beige; font-size: 50px; font-family: serif; text-decoration: dashed">Registration</h2>
+
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    <form action="/User/Registration" method="post" style=" color: black; font-family: serif; text-decoration: dashed">
+
+        <h4 style="color: white">Choose Role:</h4>
+        <select name="RoleId">
+            <option value="1">ADMIN</option>
+            <option value="2">USER</option>
+            <option value="3">VENDOR</option>
+        </select>
+        <div></div>
+        <input type="hidden" name="Id" />        <input type="text" style="margin-bottom:10px; border-radius:6%;" required name="Name" placeholder="Enter your name" />
+        <div> </div>
+        <input type="email" style="margin-bottom: 10px; border-radius: 6%" required name="Email" placeholder="Enter your email" />
+        <div> </div>
+        <input type="password" style="margin-bottom: 10px; border-radius: 6%" required name="Password" placeholder="Enter your password" />
+        <div> </div>
+
+        <input type="tel" style="margin-bottom: 10px; border-radius: 6%" max="11" min="11" required name="Contact" placeholder="Enter your Contact Number" />
+        <div> </div><div>
+
+    <p id="error" style="color:red"> </p>
+</div>
+        <input type="submit" style="margin-bottom: 10px; border-radius: 6%; text-decoration: none; color: black; background-color: palegoldenrod; font-size: 20px" class="btn btn-primary" value="SIGN UP" />
+
+
+    </form>
+</center>
+
+
+<script>
+
+
+    var msg = '@TempData["ContactError"]';
+    if (msg) {
+        document.getElementById('error').innerHTML = msg;
+    }
+</script>

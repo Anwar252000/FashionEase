@@ -1,0 +1,36 @@
+﻿@model List<PROJECT.Models.CollectionData>
+@{
+    ViewBag.Title = "GulAhmed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; font-size:50px; margin-top:60px;">Welcome to BeechTree</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="row h-100 justify-content-center align-items-center" >
+    <div class="row row-cols-1 row-cols-md-3 g-4"  style="width:1480px;">
+        @foreach (var items in ViewBag.DateOfDiv)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <p aria-hidden="true">@items.pid</p>
+                    <img src="@items.LinkImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>@items.Name</h2>
+                            <p>@items.Price: item.Price</p>
+
+                            <a href="/Checkout/Cart" style="margin-right:280px; align-content:center;" >Add to Cart</a>
+
+
+                            @*<button type="submit" href="/Checkout/Cart" style="font-size:120%">Add to Cart</button>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    </div>

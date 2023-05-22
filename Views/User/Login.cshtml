@@ -1,0 +1,37 @@
+﻿
+<!--@{
+    ViewBag.Title = "Login";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="row" />
+<link href="~/Content/style.css" rel="stylesheet" />
+<center class="row" style="margin: 200px; font-size:25px; margin:10%">
+    <h1 style="color: beige;font-size:50px; font-family: serif; text-decoration:dashed ">LOGIN</h1>
+    <p id="incorrectmsg" style="color:red"></p>
+    <form action="/User/Login" method="post">
+
+
+
+        <div> </div>
+        <input type="text" style="margin-bottom: 10px; font-display: swap; border-radius: 6% " required name="email" placeholder="Enter your email" />
+        <div> </div>
+        <input type="password" style="margin-bottom: 20px; font-display: block; border-radius: 6%" required name="Password" placeholder="Enter your password" />
+        <div> </div>
+        <input type="submit" style="border-radius: 6%; margin-right:50px;color: black; font-size: 20px; text-decoration: none; background-color: palegoldenrod" class="btn btn-primary" ; value="Login" />
+        <div></div>-->
+       @*<div class="col-md-6" style=" color: white; margin-right: 30%; margin-left: 23%; font-family: serif;"><a href="#" class="btn btn-link btn-block">Forgot your password?</a> </div>*@
+
+    <!--</form>
+    <h3 style="border-radius: 6%; color: beige;margin-right:30%;margin-left:27%; font-family: serif;">Don't Have an Account? </h3>
+    <h6 style=" font-size: 15px;"><a href="/User/Registration" style="text-decoration: none; color: black; background-color:palegoldenrod; font-size:17px" class="btn btn-primary" ;>SIGN UP</a></h6>
+</center>
+<script>
+
+
+    var msg = '@TempData["LoginError"]';
+    if (msg) {
+        document.getElementById('incorrectmsg').innerHTML = msg;
+    }
+</script>-->

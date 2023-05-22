@@ -1,0 +1,65 @@
+﻿//vendor dashboard of creating products
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+}
+
+
+<!-- Page Content -->
+<main id="main">
+
+    <!-- Content-->
+    <section class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <nav class="mb-4 pb-2 border-bottom" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="ri-home-line align-bottom me-1"></i> Dashboard</a></li>
+            </ol>
+        </nav>
+
+        <h2>Create a new Product</h2>
+
+
+        <form action="/Products/CreateProduct" method="post" enctype="multipart/form-data">
+
+            <input type="text" name="Name" placeholder="Enter name" />
+
+
+            <input type="text" name="Description" placeholder="Enter Description" />
+            <br /><br />
+
+
+            <input type="number" name="Quantity" placeholder="Enter Quantity" />
+
+
+            <input type="number" name="Price" placeholder="Enter Price" />
+
+            <br /><br />
+
+            <input type="file" name="file" />
+            <br /><br />
+
+
+            <input type="file" name="file1" />
+
+            <br /><br />
+            <input type="file" name="file2" />
+
+            <br /><br />
+            <input type="file" name="file3" />
+
+
+
+
+
+            <input type="submit" value="Create Product" class="btn btn-primary" />
+
+        </form>
+
+    </section>
+
+</main>
